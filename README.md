@@ -1,6 +1,7 @@
 # Task List
 
 ![foodgram project workflow](https://github.com/drowsycoder/dcc-basic-todo/actions/workflows/basic_todo_workflow.yml/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3e036fd70c459e427a55/maintainability)](https://codeclimate.com/github/drowsycoder/dcc-basic-todo/maintainability)
 
 A single-page basic to-do list (as a technologies testing).
 
