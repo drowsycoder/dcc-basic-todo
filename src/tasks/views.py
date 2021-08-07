@@ -5,6 +5,7 @@ from .models import Task
 
 
 def task_list_view(request):
+    """Renders two lists: completed and incomplete tasks."""
     form = TaskModelForm()
     if request.method == 'POST':
         form = TaskModelForm(request.POST or None)
@@ -23,6 +24,7 @@ def task_list_view(request):
 
 
 def complete_task(request, id):
+    """Marks the task as completed."""
     task = get_object_or_404(Task, id=id)
     task.completed = True
     task.save()
@@ -30,6 +32,7 @@ def complete_task(request, id):
 
 
 def recover_task(request, id):
+    """Marks the task as incomplete."""
     task = get_object_or_404(Task, id=id)
     task.completed = False
     task.save()
@@ -37,6 +40,7 @@ def recover_task(request, id):
 
 
 def delete_task(request, id):
+    """Deletes the task."""
     task = get_object_or_404(Task, id=id)
     task.delete()
     return redirect('task-list')
