@@ -42,7 +42,7 @@
         <div class="row">
           {% if task_list %}
             {% for task in task_list %}
-              {% include "task_snippet.html" with task_snippet_var=task type="mark_complete" %}
+              {% include "task_snippet.html" with task_snippet_var=task type="incomplete" %}
             {% endfor %}
           {% else %}
             <p>There are no tasks to do!</p>
@@ -51,7 +51,6 @@
       </div>
     </div>
   </div>
-
 
   <p>
   <h3>Completed Tasks</h3>
@@ -65,7 +64,7 @@
         <div class="row">
           {% if completed_list %}
             {% for task in completed_list %}
-              {% include "task_snippet.html" with task_snippet_var=task type="mark_incomplete" %}
+              {% include "task_snippet.html" with task_snippet_var=task type="completed" %}
             {% endfor %}
           {% else %}
             <p>There are no completed tasks!</p>

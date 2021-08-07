@@ -5,10 +5,10 @@
       {{ task_snippet_var.due_date }}
     </span>
     <span class="icons">
-      {% if type == "mark_complete" %}
-        <a href="{{ task_snippet_var.get_complete_task_url }}" title="Mark this task as complete"><span class="fas fa-check" style="color: green;"></span></a>
-      {% elif type == "mark_incomplete" %}
-        <a href="{{ task_snippet_var.get_recover_task_url }}" title="Mark this task as incomplete"><span class="fas fa-undo" style="color: blue;"></span></a>
+      {% if type == "incomplete" %}
+        <a href="{{ task_snippet_var.get_toggle_task_completion_url }}" title="Mark this task as complete"><span class="fas fa-check" style="color: green;"></span></a>
+      {% elif type == "completed" %}
+        <a href="{{ task_snippet_var.get_toggle_task_completion_url }}" title="Mark this task as incomplete"><span class="fas fa-undo" style="color: blue;"></span></a>
       {% endif %}
       <a href="{{ task_snippet_var.get_delete_task_url }}" title="Delete this task (without confirmation)"><span class="fas fa-trash" style="color: brown;"></span></a>
     </span>
