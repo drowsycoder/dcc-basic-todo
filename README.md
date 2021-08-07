@@ -1,5 +1,7 @@
 # Task List
 
+![foodgram project workflow](https://github.com/drowsycoder/dcc-basic-todo/actions/workflows/basic_todo_workflow.yml/badge.svg)
+
 A single-page basic to-do list (as a technologies testing).
 
 ### Technologies
