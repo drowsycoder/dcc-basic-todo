@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simple task list app on Django and Bootstrap">
+    <meta name="author" content="@drowsycoder">
+    <title>Task List &middot; Made on Django and Bootstrap</title>
+
+    <!-- Bootstrap core CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- Reference to  installed Font Awesome Free package's files here -->
+    <link href="{% static 'fontawesome_free/css/all.css' %}" rel="stylesheet" type="text/css">
+    {#<script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>#}
+
+    <link rel="icon" href="/static/favicon.ico">
+  </head>
+  <body>
+
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+      <img src="/static/img/list_white.png" width="32" height="32" class="me-2" alt="Task List Logo">
+      <span class="fs-4">Your Lovely Task List</span>
+      <span class="fs-6" style="position: relative; bottom: 10px; right: -10px;">Made on Django and Bootstrap</span>
+    </a>
+  </header>
+
+  <main>
+    <p class="fs-5 col-md-8">Quickly and easily add and operate your tasks with this list.</p>
+
+    {% block content %}
+    {% endblock content %}
+
+  </main>
+  <footer class="pt-5 my-5 text-muted border-top">
+    Created by <a href="https://github.com/drowsycoder/">@drowsycoder</a> &copy; 2021
+  </footer>
+</div>
+
+    <!-- Bootstrap core JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+  </body>
+</html>

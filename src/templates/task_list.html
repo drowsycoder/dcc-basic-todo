@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="mb-5">
+    <p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm" title="Press the button to show/hide the task creation form">
+        Add a task
+      </button>
+    </p>
+    <div class="collapse" id="collapseForm">
+      <div class="card card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="id_title" class="form-label">Title</label>
+            {{ form.title }}
+          </div>
+          <div class="mb-3">
+            <label for="id_due_date" class="form-label">Due date</label>
+            {{ form.due_date }}
+            <div id="dueDateHelp" class="form-text">The format of due date field is YYYY-MM-DD or YYYY-MM-DD HH:MM:SS</div>
+          </div>
+          <div class="mb-3">
+            <label for="id_label" class="form-label">Label</label>
+            {{ form.label }}
+          </div>
+          <button type="submit" class="btn btn-primary px-4">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <p>
+  <h3>To Do</h3>
+  <a class="" data-bs-toggle="collapse" href="#collapseToDoList" role="button" aria-expanded="true" aria-controls="collapseToDoList">
+    Toggle visibility of this list
+  </a>
+  </p>
+  <div class="collapse show" id="collapseToDoList">
+    <div class="card-body"> <!--"card-body card"-->
+      <div class="mb-0">
+        <div class="row">
+          {% if task_list %}
+            {% for task in task_list %}
+              {% include "task_snippet.html" with task_snippet_var=task type="mark_complete" %}
+            {% endfor %}
+          {% else %}
+            <p>There are no tasks to do!</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <p>
+  <h3>Completed Tasks</h3>
+  <a class="" data-bs-toggle="collapse" href="#collapseCompletedList" role="button" aria-expanded="false" aria-controls="collapseCompletedList">
+    Toggle visibility of this list</a>
+  <span class="text-muted"> (invisible by default)</span>
+  </p>
+  <div class="collapse" id="collapseCompletedList">
+    <div class="card-body"> <!--"card-body card"-->
+      <div class="mb-0">
+        <div class="row">
+          {% if completed_list %}
+            {% for task in completed_list %}
+              {% include "task_snippet.html" with task_snippet_var=task type="mark_incomplete" %}
+            {% endfor %}
+          {% else %}
+            <p>There are no completed tasks!</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

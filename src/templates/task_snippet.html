@@ -1,0 +1,16 @@
+<div class="card card-body">
+  <div class="task-card">
+    <span>{{ task_snippet_var.title }}</span>
+    <span class="badge bg-{{ task_snippet_var.get_label_display }}">
+      {{ task_snippet_var.due_date }}
+    </span>
+    <span class="icons">
+      {% if type == "mark_complete" %}
+        <a href="{{ task_snippet_var.get_complete_task_url }}" title="Mark this task as complete"><span class="fas fa-check" style="color: green;"></span></a>
+      {% elif type == "mark_incomplete" %}
+        <a href="{{ task_snippet_var.get_recover_task_url }}" title="Mark this task as incomplete"><span class="fas fa-undo" style="color: blue;"></span></a>
+      {% endif %}
+      <a href="{{ task_snippet_var.get_delete_task_url }}" title="Delete this task (without confirmation)"><span class="fas fa-trash" style="color: brown;"></span></a>
+    </span>
+  </div>
+</div>
